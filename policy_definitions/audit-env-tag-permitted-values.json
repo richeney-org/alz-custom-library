@@ -1,0 +1,42 @@
+{
+  "properties": {
+    "displayName": "Require 'env' tag with permitted values",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "Ensures that the 'env' tag is present on resources and its value is one of: prod, uat, staging, dev.",
+    "metadata": {
+      "category": "Tags",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "allowedValues": {
+        "type": "Array",
+        "metadata": {
+          "displayName": "Allowed values for env tag",
+          "description": "List of permitted values for the env tag"
+        },
+        "defaultValue": ["prod", "uat", "staging", "dev"]
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Resources/subscriptions"
+          },
+          {
+            "field": "tags['env']",
+            "notIn": "[parameters('allowedValues')]"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  },
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "require-env-tag-permitted-values",
+  "scope": "subscription"
+}

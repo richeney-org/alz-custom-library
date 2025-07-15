@@ -1,0 +1,45 @@
+{
+  "properties": {
+    "displayName": "Subscription Environment Tag Management",
+    "policyType": "Custom",
+    "description": "Policy set to manage environment tags at subscription scope including auditing, inheritance, and resource group creation controls.",
+    "metadata": {
+      "category": "Tags",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "allowedValues": {
+        "type": "Array",
+        "metadata": {
+          "displayName": "Allowed values for env tag",
+          "description": "List of permitted values for the env tag"
+        },
+        "defaultValue": ["prod", "uat", "staging", "dev"]
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionId": "audit-env-tag-permitted-values",
+        "parameters": {
+          "allowedValues": {
+            "value": "[parameters('allowedValues')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionId": "inherit-env-tag",
+        "parameters": {
+          "allowedValues": {
+            "value": "[parameters('allowedValues')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionId": "deny-rg-if-subscription-env-tag-missing",
+        "parameters": {}
+      }
+    ]
+  },
+  "type": "Microsoft.Authorization/policySetDefinitions",
+  "name": "subscription-env-tag"
+}

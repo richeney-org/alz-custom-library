@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/Azure-Landing-Zones-Library/main/schemas/architecture_definition.json",
+  "name": "AzureCitadel",
+  "management_groups": [
+    {
+      "archetypes": [
+        "citadel_root"
+      ],
+      "display_name": "Azure Landing Zones",
+      "exists": true,
+      "id": "alz",
+      "parent_id": null
+    },
+    {
+      "archetypes": [
+        "citadel_landing_zones"
+      ],
+      "display_name": "Landing zones",
+      "exists": true,
+      "id": "landingzones",
+      "parent_id": "alz"
+    }
+  ]
+}

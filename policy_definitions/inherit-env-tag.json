@@ -1,0 +1,54 @@
+{
+  "properties": {
+    "displayName": "Inherit 'env' tag from parent resource",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "Automatically inherits the 'env' tag from the parent resource. If the tag is updated to another permitted value, it will reinherit the value from the parent.",
+    "metadata": {
+      "category": "Tags",
+      "version": "1.0.0"
+    },
+    "parameters": {
+      "allowedValues": {
+        "type": "Array",
+        "metadata": {
+          "displayName": "Allowed values for env tag",
+          "description": "List of permitted values for the env tag"
+        },
+        "defaultValue": ["prod", "uat", "staging", "dev"]
+      }
+    },
+    "policyRule": {
+      "if": {
+        "anyOf": [
+          {
+            "field": "tags['env']",
+            "exists": false
+          },
+          {
+            "field": "tags['env']",
+            "notIn": "[parameters('allowedValues')]"
+          }
+        ]
+      },
+      "then": {
+        "effect": "modify",
+        "details": {
+          "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/"
+          ],
+          "operations": [
+            {
+              "operation": "copy",
+              "fromField": "parent.tags['env']",
+              "field": "tags['env']"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "inherit-env-tag",
+  "scope": "subscription"
+}
