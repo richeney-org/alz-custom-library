@@ -3,7 +3,6 @@
   "name": "citadel_root",
   "policy_assignments": [],
   "policy_definitions": [
-    "assign-subscription-env-tag",
     "audit-env-tag-permitted-values",
     "deny-rg-if-subscription-env-tag-missing",
     "inherit-env-tag"
