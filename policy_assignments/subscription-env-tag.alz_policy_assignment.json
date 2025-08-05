@@ -1,7 +1,7 @@
 {
     "type": "Microsoft.Authorization/policyAssignments",
     "apiVersion": "2021-06-01",
-    "name": "assign-subscription-env-tag",
+    "name": "subscription-env-tag",
     "properties": {
         "displayName": "Assign Subscription Environment Tag Management",
         "description": "Assignment of the subscription environment tag management policy set to enforce environment tagging standards.",
