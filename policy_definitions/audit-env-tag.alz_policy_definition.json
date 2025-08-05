@@ -37,6 +37,6 @@
     }
   },
   "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "require-env-tag-permitted-values",
+  "name": "audit-env-tag",
   "scope": "subscription"
 }
