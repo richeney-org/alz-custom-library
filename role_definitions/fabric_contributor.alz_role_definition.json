@@ -3,7 +3,7 @@
     "type": "Microsoft.Authorization/roleDefinitions",
     "apiVersion": "2022-04-01",
     "properties": {
-        "roleName": "Fabric Contributor",
+        "roleName": "Fabric-Contributor",
         "description": "Contributor for Microsoft Fabric Capacities and Private Link Services. Should be configured as PIM-eligible.",
         "metadata": {
             "actions": "az provider operation show --namespace Microsoft.Fabric --query 'resourceTypes[].operations[].name'"

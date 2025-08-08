@@ -1,5 +1,5 @@
 {
-  "name": "audit-env-tag",
+  "name": "Audit-Env-Tag",
   "type": "Microsoft.Authorization/policyDefinitions",
   "properties": {
     "displayName": "Require env tag with permitted values",

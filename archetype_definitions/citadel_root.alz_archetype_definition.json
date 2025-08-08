@@ -3,14 +3,14 @@
   "name": "citadel_root",
   "policy_assignments": [],
   "policy_definitions": [
-    "audit-env-tag",
-    "inherit-env-tag"
+    "Audit-Env-Tag",
+    "Inherit-Env-Tag"
   ],
   "policy_set_definitions": [
-    "subscription-env-tag"
+    "Subscription-Env-Tag"
   ],
   "role_definitions": [
-    "fabric_contributor",
-    "fabric_reader"
+    "Fabric-Contributor",
+    "Fabric-Reader"
   ]
 }

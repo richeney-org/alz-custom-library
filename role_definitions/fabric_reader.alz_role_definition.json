@@ -3,7 +3,7 @@
     "type": "Microsoft.Authorization/roleDefinitions",
     "apiVersion": "2022-04-01",
     "properties": {
-        "roleName": "Fabric Reader",
+        "roleName": "Fabric-Reader",
         "description": "Minimal role for viewing Fabric Capacity resources",
         "type": "CustomRole",
         "permissions": [

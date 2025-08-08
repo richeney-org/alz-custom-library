@@ -1,5 +1,5 @@
 {
-  "name": "inherit-env-tag",
+  "name": "Inherit-Env-Tag",
   "type": "Microsoft.Authorization/policyDefinitions",
   "properties": {
     "displayName": "Inherit env tag from parent resource",
