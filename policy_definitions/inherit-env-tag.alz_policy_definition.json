@@ -1,33 +1,27 @@
 {
+  "name": "inherit-env-tag",
+  "type": "Microsoft.Authorization/policyDefinitions",
   "properties": {
-    "displayName": "Inherit 'env' tag from parent resource",
+    "displayName": "Inherit env tag from parent resource",
     "policyType": "Custom",
     "mode": "All",
-    "description": "Automatically inherits the 'env' tag from the parent resource. If the tag is updated to another permitted value, it will reinherit the value from the parent.",
+    "description": "Automatically inherits the env tag from the parent resource. If the tag is updated to another permitted value, it will reinherit the value from the parent.",
     "metadata": {
       "category": "Tags",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "source": "https://github.com/richeney-org/citadel-custom-lib"
     },
-    "parameters": {
-      "allowedValues": {
-        "type": "Array",
-        "metadata": {
-          "displayName": "Allowed values for env tag",
-          "description": "List of permitted values for the env tag"
-        },
-        "defaultValue": ["prod", "uat", "staging", "dev"]
-      }
-    },
+    "parameters": {},
     "policyRule": {
       "if": {
-        "anyOf": [
+        "allOf": [
           {
             "field": "tags['env']",
-            "exists": false
+            "notEquals": "[subscription().tags['env']]"
           },
           {
-            "field": "tags['env']",
-            "notIn": "[parameters('allowedValues')]"
+            "value": "[subscription().tags['env']]",
+            "notEquals": ""
           }
         ]
       },
@@ -35,20 +29,17 @@
         "effect": "modify",
         "details": {
           "roleDefinitionIds": [
-            "/providers/microsoft.authorization/roleDefinitions/4a9ae827-6dc8-4573-8ac7-8239d42aa03f"
+            "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
           ],
           "operations": [
             {
-              "operation": "copy",
-              "fromField": "parent.tags['env']",
-              "field": "tags['env']"
+              "operation": "addOrReplace",
+              "field": "tags['env']",
+              "value": "[subscription().tags['env']]"
             }
           ]
         }
       }
     }
-  },
-  "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "inherit-env-tag",
-  "scope": "subscription"
+  }
 }

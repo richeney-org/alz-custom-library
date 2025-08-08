@@ -1,0 +1,25 @@
+{
+    "name": "f6b3c2d1-8a4e-4f2b-bc19-7e2a6d8c5f01",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "apiVersion": "2022-04-01",
+    "properties": {
+        "roleName": "Fabric Reader",
+        "description": "Minimal role for viewing Fabric Capacity resources",
+        "type": "CustomRole",
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Fabric/*/read",
+                    "Microsoft.Resources/*/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ],
+        "assignableScopes": [
+            "${current_scope_resource_id}"
+        ]
+    }
+}

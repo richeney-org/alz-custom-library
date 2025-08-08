@@ -4,11 +4,13 @@
   "policy_assignments": [],
   "policy_definitions": [
     "audit-env-tag",
-    "deny-rg-if-subscription-env-tag-missing",
     "inherit-env-tag"
   ],
   "policy_set_definitions": [
     "subscription-env-tag"
   ],
-  "role_definitions": []
+  "role_definitions": [
+    "fabric_contributor",
+    "fabric_reader"
+  ]
 }
