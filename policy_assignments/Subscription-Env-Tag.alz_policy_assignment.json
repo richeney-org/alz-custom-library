@@ -23,10 +23,7 @@
             }
         },
         "identity": {
-            "tenantId": null,
-            "principalId": null,
-            "identityType": "SystemAssigned",
-            "userAssignedIdentities": null
+            "identityType": "SystemAssigned"
         },
         "nonComplianceMessages": [
             {
