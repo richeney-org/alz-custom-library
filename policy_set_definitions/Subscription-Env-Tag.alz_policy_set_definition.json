@@ -27,7 +27,7 @@
     },
     "policyDefinitions": [
       {
-        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/contoso/providers/Microsoft.Authorization/policyDefinitions/audit-env-tag",
+        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/contoso/providers/Microsoft.Authorization/policyDefinitions/Audit-Env-Tag",
         "policyDefinitionReferenceId": "AuditEnvTag",
         "parameters": {
           "allowedValues": {
@@ -36,7 +36,7 @@
         }
       },
       {
-        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/contoso/providers/Microsoft.Authorization/policyDefinitions/inherit-env-tag",
+        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/contoso/providers/Microsoft.Authorization/policyDefinitions/Inherit-Env-Tag",
         "policyDefinitionReferenceId": "InheritEnvTag"
       }
     ]
