@@ -4,7 +4,7 @@
   "management_groups": [
     {
       "archetypes": [
-        "citadel_root"
+        "root_citadel"
       ],
       "display_name": "Azure Landing Zones",
       "exists": true,
@@ -13,7 +13,7 @@
     },
     {
       "archetypes": [
-        "citadel_landing_zones"
+        "landing_zones_citadel"
       ],
       "display_name": "Landing zones",
       "exists": true,
