@@ -22,6 +22,12 @@
                 ]
             }
         },
+        "identity": {
+            "tenantId": null,
+            "principalId": null,
+            "identityType": "SystemAssigned",
+            "userAssignedIdentities": null
+        },
         "nonComplianceMessages": [
             {
                 "message": "Resources must comply with environment tagging standards."
