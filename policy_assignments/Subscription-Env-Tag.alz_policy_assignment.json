@@ -10,7 +10,7 @@
             "version": "1.0.0"
         },
         "scope": "subscription",
-        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/placeholder/providers/Microsoft.Authorization/policySetDefinitions/subscription-env-tag",
+        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/placeholder/providers/Microsoft.Authorization/policySetDefinitions/Subscription-Env-Tag",
         "enforcementMode": "Default",
         "parameters": {
             "allowedValues": {
