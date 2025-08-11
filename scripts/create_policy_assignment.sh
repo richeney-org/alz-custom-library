@@ -50,7 +50,7 @@ PARAMETERS=$(echo "$ASSIGNMENT_CONTENT" | jq -c '.properties.parameters')
 PARAMS_FILE=$(mktemp)
 echo "$PARAMETERS" > "$PARAMS_FILE"
 ENFORCEMENT_MODE=$(echo "$ASSIGNMENT_CONTENT" | jq -r '.properties.enforcementMode')
-IDENTITY_TYPE=$(echo "$ASSIGNMENT_CONTENT" | jq -r '.properties.identity.identityType')
+IDENTITY_TYPE=$(echo "$ASSIGNMENT_CONTENT" | jq -r '.identity.identityType')
 NON_COMPLIANCE_MESSAGES=$(echo "$ASSIGNMENT_CONTENT" | jq -c '.properties.nonComplianceMessages')
 
 if [ "$ASSIGNMENT_NAME" = "null" ] || [ -z "$ASSIGNMENT_NAME" ]; then
@@ -69,7 +69,7 @@ if [ "$IDENTITY_TYPE" = "SystemAssigned" ]; then
     IDENTITY_SWITCH="--mi-system-assigned"
 elif [ "$IDENTITY_TYPE" = "UserAssigned" ]; then
     # Extract first resourceId from userAssignedIdentities array
-    USER_ASSIGNED_ID=$(echo "$ASSIGNMENT_CONTENT" | jq -r '.properties.identity.userAssignedIdentities[0]')
+    USER_ASSIGNED_ID=$(echo "$ASSIGNMENT_CONTENT" | jq -r '.identity.userAssignedIdentities[0]')
     if [ "$USER_ASSIGNED_ID" = "null" ] || [ -z "$USER_ASSIGNED_ID" ]; then
         echo "Error: userAssignedIdentities array is missing or empty for UserAssigned identity type."
         exit 1
@@ -94,10 +94,7 @@ fi
     for ((i=0; i<NON_COMPLIANCE_COUNT; i++)); do
         MESSAGE=$(echo "$NON_COMPLIANCE_MESSAGES" | jq -r ".[$i].message")
         if [ -n "$MESSAGE" ]; then
-            MSG_CMD="az policy assignment non-compliance-message create \
-                --name \"$ASSIGNMENT_NAME\" \
-                --scope \"$SUBSCRIPTION_SCOPE\" \
-                --message \"$MESSAGE\""
+            MSG_CMD="az policy assignment non-compliance-message create --name \"$ASSIGNMENT_NAME\" --scope \"$SUBSCRIPTION_SCOPE\" --message \"$MESSAGE\""
             echo "Executing command:"
             echo "$MSG_CMD"
             eval $MSG_CMD
