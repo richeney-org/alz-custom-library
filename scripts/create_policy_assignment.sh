@@ -50,7 +50,7 @@ PARAMETERS=$(echo "$ASSIGNMENT_CONTENT" | jq -c '.properties.parameters')
 PARAMS_FILE=$(mktemp)
 echo "$PARAMETERS" > "$PARAMS_FILE"
 ENFORCEMENT_MODE=$(echo "$ASSIGNMENT_CONTENT" | jq -r '.properties.enforcementMode')
-IDENTITY_TYPE=$(echo "$ASSIGNMENT_CONTENT" | jq -r '.identity.identityType')
+IDENTITY_TYPE=$(echo "$ASSIGNMENT_CONTENT" | jq -r '.identity.type')
 NON_COMPLIANCE_MESSAGES=$(echo "$ASSIGNMENT_CONTENT" | jq -c '.properties.nonComplianceMessages')
 
 if [ "$ASSIGNMENT_NAME" = "null" ] || [ -z "$ASSIGNMENT_NAME" ]; then
