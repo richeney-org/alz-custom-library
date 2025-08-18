@@ -3,10 +3,5 @@
   "name": "AzureCitadel",
   "display_name": "Azure Citadel custom policies",
   "description": "This library assumes default ALZ management group structure and adds custom policies.",
-  "dependencies": [
-    {
-      "path": "platform/alz",
-      "ref": "2025.02.0"
-    }
-  ]
+  "dependencies": []
 }

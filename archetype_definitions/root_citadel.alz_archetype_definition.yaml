@@ -1,0 +1,11 @@
+"$schema": "https://raw.githubusercontent.com/Azure/Azure-Landing-Zones-Library/main/schemas/archetype_definition.json"
+name: root_citadel
+policy_assignments: []
+policy_definitions:
+  - Audit-Env-Tag
+  - Inherit-Env-Tag
+policy_set_definitions:
+  - Subscription-Env-Tag
+role_definitions:
+  - Fabric-Contributor
+  - Fabric-Reader
